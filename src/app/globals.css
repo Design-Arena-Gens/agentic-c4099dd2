@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(79, 98, 255, 0.35), transparent 55%),
+    radial-gradient(circle at bottom, rgba(56, 189, 248, 0.2), transparent 50%);
+  filter: blur(80px);
+  opacity: 0.7;
+  z-index: -2;
+}
+
+.glass-panel {
+  @apply rounded-3xl border border-slate-800/60 bg-slate-900/50 backdrop-blur-lg;
+}
+
+.section-heading {
+  @apply font-display text-3xl tracking-tight text-slate-100 md:text-4xl;
+}
+
+.section-subheading {
+  @apply mt-3 max-w-2xl text-base text-slate-300 md:text-lg;
+}
+
+.accent-ring {
+  @apply pointer-events-none absolute inset-0 rounded-3xl border border-quantum-500/50 opacity-0 transition-opacity duration-500;
+}
+
+.interactive-card:hover .accent-ring,
+.interactive-card:focus-visible .accent-ring {
+  opacity: 1;
+}
